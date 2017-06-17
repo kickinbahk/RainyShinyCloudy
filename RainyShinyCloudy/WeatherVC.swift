@@ -36,13 +36,11 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   }
   
   func updateMainUI() {
-    print("updateUI called")
     dateLabel.text = currentWeather.date
     currentTempLabel.text = "\(currentWeather.currentTemp)"
     currentWeatherTypeLabel.text = currentWeather.weatherType
     locationLabel.text = currentWeather.cityName
     currentWeatherIcon.image = UIImage(named: currentWeather.weatherType)
-    print(currentWeather.currentTemp)
   }
   
 
