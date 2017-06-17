@@ -11,7 +11,7 @@
 		9355B6C99D6528155BBAF7E7 /* Pods_RainyShinyCloudyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59ABB96204CF1E8E8FFC6E8 /* Pods_RainyShinyCloudyUITests.framework */; };
 		B0A21A2F99D1E11415A89962 /* Pods_RainyShinyCloudy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7695964D5F0CE49EA8967B9 /* Pods_RainyShinyCloudy.framework */; };
 		EBADB2EA1EF5A12000C75712 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBADB2E91EF5A12000C75712 /* AppDelegate.swift */; };
-		EBADB2EC1EF5A12000C75712 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBADB2EB1EF5A12000C75712 /* ViewController.swift */; };
+		EBADB2EC1EF5A12000C75712 /* WeatherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBADB2EB1EF5A12000C75712 /* WeatherVC.swift */; };
 		EBADB2EF1EF5A12000C75712 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBADB2ED1EF5A12000C75712 /* Main.storyboard */; };
 		EBADB2F11EF5A12000C75712 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBADB2F01EF5A12000C75712 /* Assets.xcassets */; };
 		EBADB2F41EF5A12000C75712 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBADB2F21EF5A12000C75712 /* LaunchScreen.storyboard */; };
@@ -47,7 +47,7 @@
 		E59ABB96204CF1E8E8FFC6E8 /* Pods_RainyShinyCloudyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RainyShinyCloudyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBADB2E61EF5A12000C75712 /* RainyShinyCloudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RainyShinyCloudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBADB2E91EF5A12000C75712 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EBADB2EB1EF5A12000C75712 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EBADB2EB1EF5A12000C75712 /* WeatherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherVC.swift; sourceTree = "<group>"; };
 		EBADB2EE1EF5A12000C75712 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EBADB2F01EF5A12000C75712 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EBADB2F31EF5A12000C75712 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -138,7 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				EBADB2E91EF5A12000C75712 /* AppDelegate.swift */,
-				EBADB2EB1EF5A12000C75712 /* ViewController.swift */,
+				EBADB2EB1EF5A12000C75712 /* WeatherVC.swift */,
 				EBADB2ED1EF5A12000C75712 /* Main.storyboard */,
 				EBADB2F01EF5A12000C75712 /* Assets.xcassets */,
 				EBADB2F21EF5A12000C75712 /* LaunchScreen.storyboard */,
@@ -449,7 +449,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBADB2EC1EF5A12000C75712 /* ViewController.swift in Sources */,
+				EBADB2EC1EF5A12000C75712 /* WeatherVC.swift in Sources */,
 				EBADB2EA1EF5A12000C75712 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -707,6 +707,7 @@
 				EBADB3101EF5A12000C75712 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EBADB3111EF5A12000C75712 /* Build configuration list for PBXNativeTarget "RainyShinyCloudyTests" */ = {
 			isa = XCConfigurationList;
@@ -715,6 +716,7 @@
 				EBADB3131EF5A12000C75712 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EBADB3141EF5A12000C75712 /* Build configuration list for PBXNativeTarget "RainyShinyCloudyUITests" */ = {
 			isa = XCConfigurationList;
@@ -723,6 +725,7 @@
 				EBADB3161EF5A12000C75712 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
