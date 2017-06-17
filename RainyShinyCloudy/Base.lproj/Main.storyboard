@@ -79,21 +79,21 @@
                                     <constraint firstItem="mxD-i0-4Qe" firstAttribute="top" secondItem="9bB-aK-lf5" secondAttribute="top" constant="20" id="xQw-Pq-6r3"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qVd-sS-7WU">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qVd-sS-7WU">
                                 <rect key="frame" x="0.0" y="299" width="375" height="368"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="fsZ-8U-W85">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="weatherCell" rowHeight="80" id="fsZ-8U-W85">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fsZ-8U-W85" id="vdm-x5-q9i">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i0s-0R-R4S">
                                                     <rect key="frame" x="16" y="18" width="50" height="50"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="smd-HO-ZWs"/>
+                                                        <constraint firstAttribute="height" constant="50" id="53L-2J-2e9"/>
                                                         <constraint firstAttribute="width" constant="50" id="vTx-Y7-Jms"/>
                                                     </constraints>
                                                 </imageView>
@@ -149,6 +149,7 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="FIo-Rn-Tw6" secondAttribute="trailing" constant="8" id="bwq-DO-6BS"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -170,8 +171,7 @@
                     <connections>
                         <outlet property="currentTempLabel" destination="7qk-tP-UfN" id="rb7-PG-99N"/>
                         <outlet property="currentWeatherIcon" destination="dvV-7z-uC6" id="rG7-jZ-Bcc"/>
-                        <outlet property="currentWeatherLabel" destination="C0F-Cv-QBg" id="3UI-dY-q5X"/>
-                        <outlet property="currentWeatherTypeLabel" destination="C0F-Cv-QBg" id="af0-z5-9SJ"/>
+                        <outlet property="currentWeatherTypeLabel" destination="C0F-Cv-QBg" id="1xS-B1-4ZI"/>
                         <outlet property="dateLabel" destination="v98-22-aM8" id="nar-9W-Jly"/>
                         <outlet property="locationLabel" destination="u1o-WD-TcP" id="aL2-Mt-68f"/>
                         <outlet property="tableView" destination="qVd-sS-7WU" id="66s-zh-bX8"/>
