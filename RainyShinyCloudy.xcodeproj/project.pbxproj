@@ -20,6 +20,7 @@
 		EBFD2B711EF5CB50005E978C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFD2B701EF5CB50005E978C /* Constants.swift */; };
 		EBFD2B731EF5D01A005E978C /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFD2B721EF5D01A005E978C /* CurrentWeather.swift */; };
 		EBFD2B751EF5D312005E978C /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFD2B741EF5D312005E978C /* ApiKeys.swift */; };
+		EBFD2B771EF5ED2D005E978C /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFD2B761EF5ED2D005E978C /* Forecast.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		EBFD2B701EF5CB50005E978C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EBFD2B721EF5D01A005E978C /* CurrentWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		EBFD2B741EF5D312005E978C /* ApiKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
+		EBFD2B761EF5ED2D005E978C /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		F51319A00D6320970931C591 /* Pods-RainyShinyCloudyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RainyShinyCloudyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RainyShinyCloudyTests/Pods-RainyShinyCloudyTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,6 +154,7 @@
 				EBFD2B701EF5CB50005E978C /* Constants.swift */,
 				EBFD2B721EF5D01A005E978C /* CurrentWeather.swift */,
 				EBFD2B741EF5D312005E978C /* ApiKeys.swift */,
+				EBFD2B761EF5ED2D005E978C /* Forecast.swift */,
 			);
 			path = RainyShinyCloudy;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				EBADB2EA1EF5A12000C75712 /* AppDelegate.swift in Sources */,
 				EBFD2B731EF5D01A005E978C /* CurrentWeather.swift in Sources */,
 				EBFD2B711EF5CB50005E978C /* Constants.swift in Sources */,
+				EBFD2B771EF5ED2D005E978C /* Forecast.swift in Sources */,
 				EBFD2B751EF5D312005E978C /* ApiKeys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
