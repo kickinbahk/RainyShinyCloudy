@@ -20,12 +20,12 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
   @IBOutlet weak var tableView: UITableView!
   
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     tableView.delegate = self
     tableView.dataSource = self
+    print(CURRENT_WEATHER_URL)
   }
   
   func numberOfSections(in tableView: UITableView) -> Int {
