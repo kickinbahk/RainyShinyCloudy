@@ -16,10 +16,12 @@ class WeatherCell: UITableViewCell {
   @IBOutlet weak var highTemp: UILabel!
   @IBOutlet weak var lowTemp: UILabel!
   
-  
-  override func awakeFromNib() {
-      super.awakeFromNib()
-      // Initialization code
+  func configureCell(forecast: Forecast) {
+    lowTemp.text = "\(forecast.lowTemp)"
+    highTemp.text = "\(forecast.highTemp)"
+    weatherType.text = forecast.weatherType
+    weatherIcon.image = UIImage(named: forecast.weatherType)
+    dayLabel.text = forecast.date
   }
 
 
