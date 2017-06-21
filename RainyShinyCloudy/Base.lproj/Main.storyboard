@@ -83,7 +83,7 @@
                                 <rect key="frame" x="0.0" y="299" width="375" height="368"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="weatherCell" rowHeight="80" id="fsZ-8U-W85">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="weatherCell" rowHeight="80" id="fsZ-8U-W85" customClass="WeatherCell" customModule="RainyShinyCloudy" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fsZ-8U-W85" id="vdm-x5-q9i">
@@ -150,6 +150,13 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="dayLabel" destination="i9e-X8-enU" id="2BS-AJ-dGr"/>
+                                            <outlet property="highTemp" destination="HIu-bk-S2N" id="VpY-Vq-rky"/>
+                                            <outlet property="lowTemp" destination="Snh-Ku-hlM" id="ZU0-2N-RK6"/>
+                                            <outlet property="weatherIcon" destination="i0s-0R-R4S" id="XSa-lK-Y9y"/>
+                                            <outlet property="weatherType" destination="6wp-SF-ruR" id="KeV-8S-sQU"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
