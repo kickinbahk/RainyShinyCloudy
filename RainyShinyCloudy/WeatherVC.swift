@@ -43,16 +43,16 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   func downloadForecastData(completed: @escaping DownloadComplete) {
     // Download forecast weather data for TableView
     let forecastURL = URL(string: FORECAST_URL)!
+    print(FORECAST_URL)
     Alamofire.request(forecastURL).responseJSON { response in
       let result = response.result
       if let dict = result.value as? Dictionary<String, AnyObject> {
         if let list = dict["list"] as? [Dictionary<String, AnyObject>] {
           for item in list {
-            print("hit loop")
             let forecast = Forecast(weatherDict: item)
             self.forecasts.append(forecast)
-            print(item)
           }
+          self.forecasts.remove(at: 0)
           self.tableView.reloadData()
         }
       }
