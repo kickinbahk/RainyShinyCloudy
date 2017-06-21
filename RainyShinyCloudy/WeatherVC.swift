@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import CoreLocation
 import Alamofire
 
-class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
 
   @IBOutlet weak var dateLabel: UILabel!
   @IBOutlet weak var currentTempLabel: UILabel!
@@ -21,12 +22,20 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
   @IBOutlet weak var tableView: UITableView!
   
+  let locationManager = CLLocationManager()
+  var currentLocation: CLLocation!
+  
   var currentWeather: CurrentWeather!
   var forecast: Forecast!
   var forecasts = [Forecast]()
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    locationManager.delegate = self
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    locationManager.requestWhenInUseAuthorization()
+    locationManager.startMonitoringSignificantLocationChanges()
     
     tableView.delegate = self
     tableView.dataSource = self
@@ -40,10 +49,17 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
   }
   
+  func locationAuthStatus() {
+    if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+      currentLocation = locationManager.location
+    } else {
+      locationManager.requestWhenInUseAuthorization()
+    }
+  }
+  
   func downloadForecastData(completed: @escaping DownloadComplete) {
     // Download forecast weather data for TableView
     let forecastURL = URL(string: FORECAST_URL)!
-    print(FORECAST_URL)
     Alamofire.request(forecastURL).responseJSON { response in
       let result = response.result
       if let dict = result.value as? Dictionary<String, AnyObject> {

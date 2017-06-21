@@ -68,14 +68,12 @@ class Forecast {
     }
     
     if let date = weatherDict["dt"] as? Double {
-      print(date)
       let unixConvertedDate = Date(timeIntervalSince1970: date)
       let dateFormatter = DateFormatter()
       dateFormatter.dateStyle = .full
       dateFormatter.dateFormat = "EEEE"
       dateFormatter.timeStyle = .none
       self._date = unixConvertedDate.dayOfTheWeek()
-      print(_date)
     }
   }
 }
