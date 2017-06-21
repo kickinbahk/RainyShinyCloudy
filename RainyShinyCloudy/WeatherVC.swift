@@ -54,6 +54,7 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
       currentLocation = locationManager.location
     } else {
       locationManager.requestWhenInUseAuthorization()
+      locationAuthStatus()
     }
   }
   
