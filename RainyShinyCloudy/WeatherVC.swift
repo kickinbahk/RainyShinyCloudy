@@ -15,11 +15,8 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
   @IBOutlet weak var dateLabel: UILabel!
   @IBOutlet weak var currentTempLabel: UILabel!
   @IBOutlet weak var locationLabel: UILabel!
-  
   @IBOutlet weak var currentWeatherIcon: UIImageView!
-  
   @IBOutlet weak var currentWeatherTypeLabel: UILabel!
-
   @IBOutlet weak var tableView: UITableView!
   
   let locationManager = CLLocationManager()
@@ -28,6 +25,17 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
   var currentWeather: CurrentWeather!
   var forecast: Forecast!
   var forecasts = [Forecast]()
+  
+  struct WeatherTypes {
+    static let clear = "Clear"
+    static let clouds = "Clouds"
+    static let haze = "Clouds"
+    static let mist = "Clouds"
+    static let rain = "Rain"
+    static let snow = "Snow"
+    static let partiallyCloudy = "Partially Cloudy"
+    static let thunderstorm = "Thunderstorm"
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -89,8 +97,33 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     currentTempLabel.text = formatTemp(temp: currentWeather.currentTemp)
     currentWeatherTypeLabel.text = currentWeather.weatherType
     locationLabel.text = currentWeather.cityName
-    var currentWeatherType = currentWeather.weatherType
+    let currentWeatherType = checkWeatherType(weather: currentWeather.weatherType)
     currentWeatherIcon.image = UIImage(named: currentWeatherType)
+  }
+  
+  func checkWeatherType(weather: String) -> String {
+    let weatherType: String
+    switch weather {
+    case "Clear":
+      weatherType = WeatherTypes.clear
+    case "Clouds":
+      weatherType = WeatherTypes.clouds
+    case "Partially Cloudy":
+      weatherType = WeatherTypes.partiallyCloudy
+    case "Haze":
+      weatherType = WeatherTypes.haze
+    case "Mist":
+      weatherType = WeatherTypes.mist
+    case "Rain":
+      weatherType = WeatherTypes.rain
+    case "Snow":
+      weatherType = WeatherTypes.snow
+    case "Thunderstorm":
+      weatherType = WeatherTypes.thunderstorm
+    default:
+      weatherType = WeatherTypes.partiallyCloudy
+    }
+    return weatherType
   }
   
   func formatTemp(temp: Double) -> String {
