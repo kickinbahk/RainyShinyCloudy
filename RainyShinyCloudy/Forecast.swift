@@ -13,8 +13,8 @@ import Alamofire
 class Forecast {
   var _date: String!
   var _weatherType: String!
-  var _highTemp: String!
-  var _lowTemp: String!
+  var _highTemp: Double!
+  var _lowTemp: Double!
 
   var date: String {
     if _date == nil {
@@ -30,16 +30,16 @@ class Forecast {
     return _weatherType
   }
   
-  var highTemp: String {
+  var highTemp: Double {
     if _highTemp == nil {
-      _highTemp = ""
+      _highTemp = 0.0
     }
     return _highTemp
   }
   
-  var lowTemp: String {
+  var lowTemp: Double {
     if _lowTemp == nil {
-      _lowTemp = nil
+      _lowTemp = 0.0
     }
     return _lowTemp
   }
@@ -50,14 +50,14 @@ class Forecast {
         let kelvinToFarenheitPreDivision = (min * (9/5) - 459.67)
         let kelvinToFarenheit = Double(round(10 * kelvinToFarenheitPreDivision / 10))
         
-        self._lowTemp = "\(kelvinToFarenheit)"
+        self._lowTemp = kelvinToFarenheit
       }
       
       if let max = temp["max"] as? Double {
         let kelvinToFarenheitPreDivision = (max * (9/5) - 459.67)
         let kelvinToFarenheit = Double(round(10 * kelvinToFarenheitPreDivision / 10))
         
-        self._highTemp = "\(kelvinToFarenheit)"
+        self._highTemp = kelvinToFarenheit
       }
     }
     
