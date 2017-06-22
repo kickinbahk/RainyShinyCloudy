@@ -86,14 +86,18 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
   
   func updateMainUI() {
     dateLabel.text = currentWeather.date
-    currentTempLabel.text = "\(currentWeather.currentTemp)"
+    currentTempLabel.text = formatTemp(temp: currentWeather.currentTemp)
     currentWeatherTypeLabel.text = currentWeather.weatherType
     locationLabel.text = currentWeather.cityName
     var currentWeatherType = currentWeather.weatherType
     currentWeatherIcon.image = UIImage(named: currentWeatherType)
   }
   
-
+  func formatTemp(temp: Double) -> String {
+    let intTemp = Int(temp)
+    let formattedTemp = "\(intTemp)°"
+    return formattedTemp
+  }
 }
 
 extension WeatherVC {
