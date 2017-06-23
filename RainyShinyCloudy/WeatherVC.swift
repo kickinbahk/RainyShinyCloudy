@@ -57,20 +57,48 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
   }
   
   func locationAuthStatus() {
-    if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-      currentLocation = locationManager.location
-      Location.sharedInstance.latitude = currentLocation.coordinate.latitude
-      Location.sharedInstance.longitude = currentLocation.coordinate.longitude
-      currentWeather.downloadWeatherDetails {
-        self.downloadForecastData {
-          self.updateMainUI()
-        }
-      }
-    } else {
+    let authStatus = CLLocationManager.authorizationStatus()
+    
+    if authStatus == .notDetermined {
       locationManager.requestWhenInUseAuthorization()
-      locationAuthStatus()
+      return
+    }
+    
+    if authStatus == .denied || authStatus == .restricted {
+      showLocationServicesDeniedAlert()
+      return
+    }
+    
+    // if does not fail above
+    updateLocation()
+  }
+  
+  func updateLocation() {
+    currentLocation = locationManager.location
+    Location.sharedInstance.latitude = currentLocation.coordinate.latitude
+    Location.sharedInstance.longitude = currentLocation.coordinate.longitude
+    print("got location")
+    currentWeather.downloadWeatherDetails {
+      self.downloadForecastData {
+        print("got forcaest data")
+        self.updateMainUI()
+        self.tableView.reloadData()
+      }
     }
   }
+  
+  func showLocationServicesDeniedAlert() {
+    let alert = UIAlertController(title: "Location Services Disabled",
+                                  message: "Please enable location services for this app in Settings.",
+                                  preferredStyle: .alert)
+    let okAction = UIAlertAction(title: "OK",
+                                 style: .default,
+                                 handler: nil)
+    
+    alert.addAction(okAction)
+    present(alert, animated: true, completion: nil)
+  }
+
   
   func downloadForecastData(completed: @escaping DownloadComplete) {
     // Download forecast weather data for TableView
@@ -153,5 +181,11 @@ extension WeatherVC {
     }
   }
 
+}
+
+extension WeatherVC {
+  func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    locationAuthStatus()
+  }
 }
 
