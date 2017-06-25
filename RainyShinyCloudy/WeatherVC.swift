@@ -24,7 +24,8 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
   
   var currentWeather: CurrentWeather!
   var forecast: Forecast!
-  var forecasts = [Forecast]()
+  var forecasts: [ForecastItem]?
+
   
   struct WeatherTypes {
     static let clear = "Clear"
@@ -49,6 +50,7 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     tableView.dataSource = self
     
     currentWeather = CurrentWeather()
+    forecast = Forecast()
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -69,7 +71,6 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
       return
     }
     
-    // if does not fail above
     updateLocation()
   }
   
@@ -79,8 +80,9 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     Location.sharedInstance.longitude = currentLocation.coordinate.longitude
     print("got location")
     currentWeather.downloadWeatherDetails {
-      self.downloadForecastData {
-        print("got forcaest data")
+      self.forecast.downloadForecastData {
+        print("got forecast data")
+        self.forecasts = self.forecast.forecasts
         self.updateMainUI()
         self.tableView.reloadData()
       }
@@ -99,26 +101,6 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     present(alert, animated: true, completion: nil)
   }
 
-  
-  func downloadForecastData(completed: @escaping DownloadComplete) {
-    // Download forecast weather data for TableView
-    let forecastURL = URL(string: FORECAST_URL)!
-    Alamofire.request(forecastURL).responseJSON { response in
-      let result = response.result
-      if let dict = result.value as? Dictionary<String, AnyObject> {
-        if let list = dict["list"] as? [Dictionary<String, AnyObject>] {
-          for item in list {
-            let forecast = Forecast(weatherDict: item)
-            self.forecasts.append(forecast)
-          }
-          self.forecasts.remove(at: 0)
-          self.tableView.reloadData()
-        }
-      }
-      completed()
-    }
-    
-  }
   
   func updateMainUI() {
     dateLabel.text = currentWeather.date
@@ -167,14 +149,18 @@ extension WeatherVC {
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return forecasts.count
+    if let forecastsArr = forecasts {
+      return forecastsArr.count - 1 // Starting with tomorrow's data
+    } else {
+      return 0
+    }
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     if let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell",
                                                 for: indexPath) as? WeatherCell {
-      let forecast = forecasts[indexPath.row]
-      cell.configureCell(forecast: forecast)
+      let forecast = forecasts?[indexPath.row + 1] // First Item includes today so we start at tomorrows data
+      cell.configureCell(forecastItem: forecast!)
       return cell
     } else {
       return WeatherCell()
@@ -185,6 +171,7 @@ extension WeatherVC {
 
 extension WeatherVC {
   func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    print("Location Auth Changed")
     locationAuthStatus()
   }
 }

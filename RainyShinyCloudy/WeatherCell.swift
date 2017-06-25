@@ -16,12 +16,12 @@ class WeatherCell: UITableViewCell {
   @IBOutlet weak var highTemp: UILabel!
   @IBOutlet weak var lowTemp: UILabel!
   
-  func configureCell(forecast: Forecast) {
-    lowTemp.text = formatCellTemp(temp: forecast.lowTemp)
-    highTemp.text = formatCellTemp(temp: forecast.highTemp)
-    weatherType.text = forecast.weatherType
-    weatherIcon.image = UIImage(named: forecast.weatherType)
-    dayLabel.text = forecast.date
+  func configureCell(forecastItem: ForecastItem) {
+    lowTemp.text = formatCellTemp(temp: forecastItem.lowTemp)
+    highTemp.text = formatCellTemp(temp: forecastItem.highTemp)
+    weatherType.text = forecastItem.weatherType
+    weatherIcon.image = UIImage(named: forecastItem.weatherType)
+    dayLabel.text = forecastItem.date
   }
 
   func formatCellTemp(temp: Double) -> String {
