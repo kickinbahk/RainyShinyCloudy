@@ -81,12 +81,23 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     Location.sharedInstance.latitude = currentLocation.coordinate.latitude
     Location.sharedInstance.longitude = currentLocation.coordinate.longitude
     print("got location")
+    downloadWeatherData()
+  }
+  
+  func downloadWeatherData() {
     currentWeather.downloadWeatherDetails {
       self.forecast.downloadForecastData {
         print("got forecast data")
-        self.forecasts = self.forecast.forecasts
-        self.updateMainUI()
-        self.tableView.reloadData()
+        if self.forecasts?.count == 0 || self.forecasts?.count == nil {
+          self.forecasts = self.forecast.forecasts
+          print(self.forecasts!.count)
+          self.updateMainUI()
+          self.tableView.reloadData()
+        } else {
+          print("already have forecast")
+          self.updateMainUI()
+        }
+        
       }
     }
   }
@@ -107,7 +118,6 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
   func updateMainUI() {
     let views = self.view.subviews
     for subview in views {
-      print(subview.tag)
       if subview.tag == 1001 {
         subview.removeFromSuperview()
       }
