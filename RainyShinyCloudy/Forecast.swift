@@ -26,7 +26,6 @@ class Forecast {
             let forecast = ForecastItem(weatherDict: item)
             self.forecasts.append(forecast)
           }
-          self.forecasts.remove(at: 0)
         }
       }
       completed()

@@ -71,7 +71,6 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
       return
     }
     
-    // if does not fail above
     updateLocation()
   }
   
@@ -151,7 +150,7 @@ extension WeatherVC {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if let forecastsArr = forecasts {
-      return forecastsArr.count
+      return forecastsArr.count - 1 // Starting with tomorrow's data
     } else {
       return 0
     }
@@ -160,8 +159,8 @@ extension WeatherVC {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     if let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell",
                                                 for: indexPath) as? WeatherCell {
-      let forecast = forecasts![indexPath.row]
-      cell.configureCell(forecastItem: forecast)
+      let forecast = forecasts?[indexPath.row + 1] // First Item includes today so we start at tomorrows data
+      cell.configureCell(forecastItem: forecast!)
       return cell
     } else {
       return WeatherCell()
@@ -172,6 +171,7 @@ extension WeatherVC {
 
 extension WeatherVC {
   func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    print("Location Auth Changed")
     locationAuthStatus()
   }
 }
