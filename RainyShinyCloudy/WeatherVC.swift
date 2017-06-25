@@ -18,6 +18,7 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
   @IBOutlet weak var currentWeatherIcon: UIImageView!
   @IBOutlet weak var currentWeatherTypeLabel: UILabel!
   @IBOutlet weak var tableView: UITableView!
+  let dimmedView = UIView()
   
   let locationManager = CLLocationManager()
   var currentLocation: CLLocation!
@@ -68,6 +69,7 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     
     if authStatus == .denied || authStatus == .restricted {
       showLocationServicesDeniedAlert()
+      noLocationData()
       return
     }
     
@@ -103,6 +105,14 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
 
   
   func updateMainUI() {
+    let views = self.view.subviews
+    for subview in views {
+      print(subview.tag)
+      if subview.tag == 1001 {
+        subview.removeFromSuperview()
+      }
+    }
+    
     dateLabel.text = currentWeather.date
     currentTempLabel.text = formatTemp(temp: currentWeather.currentTemp)
     currentWeatherTypeLabel.text = currentWeather.weatherType
@@ -140,6 +150,35 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     let intTemp = Int(temp)
     let formattedTemp = "\(intTemp)°"
     return formattedTemp
+  }
+  
+  func noLocationData() {
+    dimmedView.backgroundColor = UIColor.black.withAlphaComponent(0.65)
+    dimmedView.tag = 1001
+    
+    view.addSubview(dimmedView)
+    
+    dimmedView.translatesAutoresizingMaskIntoConstraints = false
+    dimmedView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+    dimmedView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+    dimmedView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+    dimmedView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+    
+    let prompt = UILabel()
+    prompt.textAlignment = .center
+    prompt.text = "Please Enable Location in Settings to Use This App"
+    prompt.textColor = .white
+    prompt.font = UIFont(name: "AvenirNext-DemiBold", size: 24)
+    prompt.lineBreakMode = .byWordWrapping
+    prompt.numberOfLines = 0
+    
+    dimmedView.addSubview(prompt)
+    
+    prompt.translatesAutoresizingMaskIntoConstraints = false
+    prompt.leadingAnchor.constraint(equalTo: dimmedView.leadingAnchor, constant: 25).isActive = true
+    prompt.trailingAnchor.constraint(equalTo: dimmedView.trailingAnchor, constant: -25).isActive = true
+    prompt.centerYAnchor.constraint(equalTo: dimmedView.centerYAnchor).isActive = true
+    
   }
 }
 
