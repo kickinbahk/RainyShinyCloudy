@@ -57,7 +57,7 @@
 		EB9500091EFAB33B00355A79 /* WeatherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
 		EB95000B1EFAC1CE00355A79 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		EBACD6731EFB5B6C00DAB235 /* Date+DayOfTheWeek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+DayOfTheWeek.swift"; sourceTree = "<group>"; };
-		EBADB2E61EF5A12000C75712 /* RainyShinyCloudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RainyShinyCloudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBADB2E61EF5A12000C75712 /* RainyShiny.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RainyShiny.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBADB2E91EF5A12000C75712 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBADB2EB1EF5A12000C75712 /* WeatherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherVC.swift; sourceTree = "<group>"; };
 		EBADB2EE1EF5A12000C75712 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -143,7 +143,7 @@
 		EBADB2E71EF5A12000C75712 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EBADB2E61EF5A12000C75712 /* RainyShinyCloudy.app */,
+				EBADB2E61EF5A12000C75712 /* RainyShiny.app */,
 				EBADB2FA1EF5A12000C75712 /* RainyShinyCloudyTests.xctest */,
 				EBADB3051EF5A12000C75712 /* RainyShinyCloudyUITests.xctest */,
 			);
@@ -209,7 +209,7 @@
 			);
 			name = RainyShinyCloudy;
 			productName = RainyShinyCloudy;
-			productReference = EBADB2E61EF5A12000C75712 /* RainyShinyCloudy.app */;
+			productReference = EBADB2E61EF5A12000C75712 /* RainyShiny.app */;
 			productType = "com.apple.product-type.application";
 		};
 		EBADB2F91EF5A12000C75712 /* RainyShinyCloudyTests */ = {
@@ -639,7 +639,7 @@
 				INFOPLIST_FILE = RainyShinyCloudy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kickinbahkproductions.RainyShinyCloudy;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RainyShiny;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -653,7 +653,7 @@
 				INFOPLIST_FILE = RainyShinyCloudy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kickinbahkproductions.RainyShinyCloudy;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RainyShiny;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
