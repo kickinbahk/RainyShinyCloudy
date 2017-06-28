@@ -38,6 +38,10 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     static let thunderstorm = "Thunderstorm"
   }
   
+  override var preferredStatusBarStyle: UIStatusBarStyle {
+    return .lightContent
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
