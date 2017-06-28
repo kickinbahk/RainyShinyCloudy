@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EBADB2E51EF5A12000C75712"
-               BuildableName = "RainyShinyCloudy.app"
+               BuildableName = "RainyShiny.app"
                BlueprintName = "RainyShinyCloudy"
                ReferencedContainer = "container:RainyShinyCloudy.xcodeproj">
             </BuildableReference>
@@ -53,7 +53,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EBADB2E51EF5A12000C75712"
-            BuildableName = "RainyShinyCloudy.app"
+            BuildableName = "RainyShiny.app"
             BlueprintName = "RainyShinyCloudy"
             ReferencedContainer = "container:RainyShinyCloudy.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EBADB2E51EF5A12000C75712"
-            BuildableName = "RainyShinyCloudy.app"
+            BuildableName = "RainyShiny.app"
             BlueprintName = "RainyShinyCloudy"
             ReferencedContainer = "container:RainyShinyCloudy.xcodeproj">
          </BuildableReference>
@@ -95,7 +95,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EBADB2E51EF5A12000C75712"
-            BuildableName = "RainyShinyCloudy.app"
+            BuildableName = "RainyShiny.app"
             BlueprintName = "RainyShinyCloudy"
             ReferencedContainer = "container:RainyShinyCloudy.xcodeproj">
          </BuildableReference>

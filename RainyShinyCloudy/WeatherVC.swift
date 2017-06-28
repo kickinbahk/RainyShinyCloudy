@@ -26,7 +26,6 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
   var currentWeather: CurrentWeather!
   var forecast: Forecast!
   var forecasts: [ForecastItem]?
-
   
   struct WeatherTypes {
     static let clear = "Clear"
@@ -53,7 +52,7 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     currentWeather = CurrentWeather()
     forecast = Forecast()
   }
-  
+
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     locationAuthStatus()
